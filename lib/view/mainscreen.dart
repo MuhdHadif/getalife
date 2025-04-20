@@ -62,8 +62,8 @@ class _MainScreenState extends State<MainScreen> {
                         children: [
                           Text("Name: ", style: TextStyle(fontWeight: FontWeight.bold)), 
                           Text("${user.name?.full}")
-                        ],),),
-                      ),
+                        ],),
+                      ),),
 
                       // Gender
                       Card(child: Padding(padding: const EdgeInsets.all(8.0),
@@ -72,8 +72,8 @@ class _MainScreenState extends State<MainScreen> {
                         children: [
                           Text("Gender: ", style: TextStyle(fontWeight: FontWeight.bold)), 
                           Text("${user.gender}")
-                        ],),),
-                      ),
+                        ],),
+                      ),),
 
                       // Email
                       Card(child: Padding(padding: const EdgeInsets.all(8.0),
@@ -82,8 +82,8 @@ class _MainScreenState extends State<MainScreen> {
                         children: [
                           Text("Email: ", style: TextStyle(fontWeight: FontWeight.bold)), 
                           Text("${user.email}")
-                        ],),),
-                      ),
+                        ],),
+                      ),),
 
                       // Address
                       Card(child: Padding(padding: const EdgeInsets.all(8.0),
@@ -105,8 +105,8 @@ class _MainScreenState extends State<MainScreen> {
                               ]
                             ),
                           )
-                        ],),),
-                      ),
+                        ],),
+                      ),),
 
                       // Coordinates
                       Card(child: Padding(padding: const EdgeInsets.all(8.0),
@@ -115,8 +115,8 @@ class _MainScreenState extends State<MainScreen> {
                         children: [
                           Text("Coordinates: ", style: TextStyle(fontWeight: FontWeight.bold)), 
                           Text("${user.location?.coordinates?.latitude}, ${user.location?.coordinates?.longitude}")
-                        ],),),
-                      ),
+                        ],),
+                      ),),
 
                       // Timezone
                       Card(child: Padding(padding: const EdgeInsets.all(8.0),
@@ -133,13 +133,16 @@ class _MainScreenState extends State<MainScreen> {
                               )
                             ),
                           ),
-                        ],),),
-                      ),
+                        ],),
+                      ),),
+
                     ],
                   ),
                 ),
               ),
             ),
+
+            // Get A Life button
             Container(
               padding: EdgeInsets.only(top: 8),
               height: 55,
