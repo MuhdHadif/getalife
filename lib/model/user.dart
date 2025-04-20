@@ -331,11 +331,7 @@ class Picture {
   String? medium;
   String? thumbnail;
 
-  Picture(){
-    this.large = "https://randomuser.me/api/portraits/men/1.jpg";
-    this.medium = "https://randomuser.me/api/portraits/men/1.jpg";
-    this.thumbnail = "https://randomuser.me/api/portraits/men/1.jpg";
-  }
+  Picture({this.large, this.medium, this.thumbnail});
 
   Picture.fromJson(Map<String, dynamic> json) {
     large = json['large'];

@@ -1,10 +1,9 @@
 import 'dart:convert';
 
-// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:getalife/model/user.dart';
 import 'package:http/http.dart' as http;
-// import 'package:loading_gifs/loading_gifs.dart';
+import 'package:loading_gifs/loading_gifs.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -15,6 +14,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   Results user = Results();
+  bool userFetched = false;
 
   @override
   void initState() {
@@ -44,18 +44,15 @@ class _MainScreenState extends State<MainScreen> {
                       // Image
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
-                        // child: CachedNetworkImage(
-                        //   imageUrl: "${user.picture?.large}",
-                        //   placeholder: (context, url) => const CircularProgressIndicator(),
-                        // )
-                        // Image.network("${user.picture?.large}"),
-                        // child: FadeInImage.assetNetwork(
-                        //   placeholder: circularProgressIndicatorSmall,
-                        //   image: '${user.picture?.large}',
-                        //   imageErrorBuilder: (context, error, stackTrace) {
-                        //     return Image.asset(circularProgressIndicatorSmall);
-                        //   },
-                        // ),
+                        child: userFetched 
+                        ? FadeInImage.assetNetwork(
+                          image: '${user.picture?.large}',
+                          placeholder: circularProgressIndicatorSmall,
+                          imageErrorBuilder: (context, error, stackTrace) {
+                            return Image.asset(circularProgressIndicatorSmall);
+                          },
+                        )
+                        : Text("No image") 
                       ),
 
                       // Name
@@ -173,6 +170,7 @@ class _MainScreenState extends State<MainScreen> {
 
         setState(() {
           user = User.fromJson(jsondata).results![0];
+          userFetched = true;
         });
       } else {
         //error
