@@ -23,35 +23,33 @@ class _SplashScreenState extends State<SplashScreen>{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-            color: Colors.green
-          ),
-          child: Center(
-            child:  Padding(
-              padding: EdgeInsets.only(left: 20, right: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset("assets/images/getalife_logo_transparent.png", scale: 2),
-                  const LinearProgressIndicator(
-                    backgroundColor: Colors.white,
-                    valueColor: AlwaysStoppedAnimation(Colors.yellow)
-                  ),
-                  // ElevatedButton(onPressed: (){
-                  //   Navigator.push(
-                  //     context, 
-                  //     MaterialPageRoute(builder: (context) => MainScreen())
-                  //   );
-                  // }, child: Text("Main Screen"))
-                ]
-              ),
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.green
+        ),
+        child: Center(
+          child:  Padding(
+            padding: EdgeInsets.only(left: 20, right: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/images/getalife_logo_transparent.png", scale: 2),
+                const LinearProgressIndicator(
+                  backgroundColor: Colors.white,
+                  valueColor: AlwaysStoppedAnimation(Colors.yellow)
+                ),
+                // ElevatedButton(onPressed: (){
+                //   Navigator.push(
+                //     context, 
+                //     MaterialPageRoute(builder: (context) => MainScreen())
+                //   );
+                // }, child: Text("Main Screen"))
+              ]
             ),
           ),
-        )
-      ),
+        ),
+      )
     );
   }
 
