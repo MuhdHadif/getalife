@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:getalife/view/mainscreen.dart';
-// import 'package:unigo/view/mainscreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

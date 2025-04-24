@@ -167,27 +167,27 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Future<void> getUser() async {
-      http.get(Uri.parse("https://randomuser.me/api/")).then((response) {
-        if(response.statusCode == 200){
-          var jsondata = json.decode(response.body);
+    http.get(Uri.parse("https://randomuser.me/api/")).then((response) {
+      if(response.statusCode == 200){
+        var jsondata = json.decode(response.body);
 
-          setState(() {
-            user = User.fromJson(jsondata).results![0];
-            userFetched = true;
-          });
-        } else {
-          //statusCode not 200
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text("Failed to fetch new user."),
-            backgroundColor: Colors.red,
-          ));
-        }
-      }).catchError((catchError){
-        //error
+        setState(() {
+          user = User.fromJson(jsondata).results![0];
+          userFetched = true;
+        });
+      } else {
+        //statusCode not 200
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text("Failed to fetch new user."),
           backgroundColor: Colors.red,
         ));
-      });
+      }
+    }).catchError((catchError){
+      //error
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Failed to fetch new user."),
+        backgroundColor: Colors.red,
+      ));
+    });
   }
 }
